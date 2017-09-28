@@ -1,0 +1,25 @@
+﻿@model List<StudentManagement.Web.Models.BlogPostViewModels>
+@{
+    ViewBag.Title = "My Blog";
+}
+
+<h2>Index</h2>
+@if (Model == null)
+{
+    <h4>Blog empty</h4>
+    <p>Either under development, or author is busy. Visit back again later! :-)</p>
+    <a href="~/blogpost/create">Create new post</a>
+}
+else
+{
+    <h4>My blog</h4>
+    <p>Read my blog posts below...</p>
+    // Content is available.
+    <a href="~/blog/create">Create new post</a>
+    foreach (var post in Model)
+    {
+        
+        <h4><a href="~/blogpost/read/@post.ID">@post.Title</a></h4>
+       
+    }
+}
